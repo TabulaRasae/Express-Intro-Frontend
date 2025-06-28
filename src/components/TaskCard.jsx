@@ -5,7 +5,7 @@ import "./TaskCardStyles.css";
 const TaskCard = ({ task, fetchAllTasks }) => {
   const handleCompleteTask = async () => {
     try {
-      await axios.patch(`https://sequelize-intro-starting-point.vercel.app/api/tasks/${task.id}`, {
+      await axios.patch(`https://sequelize-intro-starting-point.vercel.app/${task.id}`, {
         completed: !task.completed,
       });
       fetchAllTasks();
@@ -16,7 +16,7 @@ const TaskCard = ({ task, fetchAllTasks }) => {
 
   const handleDeleteTask = async () => {
     try {
-      await axios.delete(`https://sequelize-intro-starting-point.vercel.app/api/tasks/${task.id}`);
+      await axios.delete(`https://sequelize-intro-starting-point.vercel.app/${task.id}`);
       fetchAllTasks();
     } catch (error) {
       console.error("Error deleting task:", error);
